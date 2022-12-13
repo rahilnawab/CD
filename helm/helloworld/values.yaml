@@ -8,7 +8,7 @@ image:
   repository: rahilnawab/devops-integration
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "125"
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
