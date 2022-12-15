@@ -21,7 +21,7 @@ pipeline {
     stage('Deploying Selected Image in Helm locally'){
             steps {
               bat '''
-                helm install demo \helloworld --set image.tag=%DOCKER_IMAGE_TAG%
+                helm install demo helloworld --set image.tag=%DOCKER_IMAGE_TAG%
               '''
 			}
 		}
