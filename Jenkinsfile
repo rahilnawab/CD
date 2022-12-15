@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   parameters {
-  string defaultValue: 'First', name: 'Release_Name'
+  string defaultValue: 'first', name: 'Release_Name'
   imageTag credentialId: 'dockerhub-pwd', defaultTag: '125', filter: '.*', image: 'rahilnawab/devops-integration', name: 'DOCKER_IMAGE', registry: 'https://registry-1.docker.io', tagOrder: 'DSC_VERSION'
 }
 
