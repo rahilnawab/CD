@@ -2,12 +2,14 @@ pipeline {
   agent any
 
   parameters {
+  string defaultValue: 'First', name: 'Release_Name'
   imageTag credentialId: 'dockerhub-pwd', defaultTag: '125', filter: '.*', image: 'rahilnawab/devops-integration', name: 'DOCKER_IMAGE', registry: 'https://registry-1.docker.io', tagOrder: 'DSC_VERSION'
 }
 
   stages {
     stage('Pulling Docker Image') {
       steps {
+        echo "Release Name = $Release_Name"
         echo "Image = $DOCKER_IMAGE" 
         echo "Image Tag = $DOCKER_IMAGE_TAG" 
       }
@@ -21,7 +23,7 @@ pipeline {
     stage('Deploying Selected Image in Helm locally'){
             steps {
               bat '''
-                helm install demo helm/helloworld --set image.tag=%DOCKER_IMAGE_TAG%
+                helm install %Release_Name% helm/helloworld --set image.tag=%DOCKER_IMAGE_TAG%
               '''
 			}
 		}
