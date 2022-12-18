@@ -2,14 +2,14 @@
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "POC8.fullname" . }}
+  name: {{ include "poc8.fullname" . }}
   labels:
-    {{- include "POC8.labels" . | nindent 4 }}
+    {{- include "poc8.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "POC8.fullname" . }}
+    name: {{ include "poc8.fullname" . }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:
