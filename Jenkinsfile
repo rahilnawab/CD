@@ -23,7 +23,7 @@ pipeline {
     stage('Deploying Selected Image in Helm locally'){
             steps {
               bat '''
-                helm upgrade  --install %Release_Name% helm/helloworld --set image.tag=%DOCKER_IMAGE_TAG%
+                helm upgrade  --install %Release_Name% helm/POC8 --set image.tag=%DOCKER_IMAGE_TAG%
               '''
 			}
 		}
